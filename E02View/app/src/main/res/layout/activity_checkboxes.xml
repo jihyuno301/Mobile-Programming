@@ -88,7 +88,7 @@
             android:layout_weight="1"
             android:drawableLeft="@mipmap/animal_dog_small"
             android:drawablePadding="5dp"
-            android:text="강아지" />
+            android:text="@string/cat" />
 
         <RadioButton
             android:id="@+id/radioCat"
@@ -97,7 +97,7 @@
             android:layout_weight="1"
             android:drawableLeft="@mipmap/animal_cat_small"
             android:drawablePadding="5dp"
-            android:text="고양이" />
+            android:text="@string/강아지" />
 
         <RadioButton
             android:id="@+id/radioOwl"
@@ -106,7 +106,7 @@
             android:layout_weight="1"
             android:drawableLeft="@mipmap/animal_owl_small"
             android:drawablePadding="5dp"
-            android:text="부엉이" />
+            android:text="@string/owl" />
     </RadioGroup>
 
     <ImageView
