@@ -9,7 +9,16 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".SpinnersActivity"
+        <activity android:name=".MemoActivity"
+            android:label="@string/memo"/>
+        <activity
+            android:name=".SignupActivity"
+            android:label="@string/signUp" />
+        <activity
+            android:name=".SwapStringActivity"
+            android:label="@string/action_swap" />
+        <activity
+            android:name=".SpinnersActivity"
             android:label="@string/action_spinners" />
         <activity android:name=".MainActivity">
             <intent-filter>

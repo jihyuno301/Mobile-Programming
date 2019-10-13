@@ -4,6 +4,19 @@
     <string name="score">점수를 입력해주세요.</string>
     <string name="save">저장</string>
     <string name="action_spinners">Spinners Test</string>
+    <string name="action_swap">SwapString Test</string>
+    <string name="loginId">로그인 아이디</string>
+    <string name="input_loginId">로그인 아이디를 입력해주세요.</string>
+    <string name="password">비밀번호</string>
+    <string name="input_password">비밀번호를 입력하세요.</string>
+    <string name="password2">비밀번호 확인</string>
+    <string name="input_password2">비밀번호를 한번 더 입력하세요.</string>
+    <string name="email">이메일</string>
+    <string name="input_email">이메일 주소를 입력하세요.</string>
+    <string name="signUp">회원가입</string>
+    <string name="memo">메모장</string>
+    <string name="input_memo">제목을 입력하세요.</string>
+    <string name="input_content">내용을 입력하세요.</string>
     <string-array name="licenses">
         <item>정보처리기사</item>
         <item>리눅스마스터</item>
