@@ -1,10 +1,15 @@
 package net.skhu;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -14,14 +19,13 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
     }
 
-    public void btnListView_clicked(View view) {
-        Intent intent = new Intent(this, ListViewActivity.class);
+    public void button_clicked1(View button) {
+        Intent intent = new Intent(this, Exam1Activity.class);
         startActivity(intent);
     }
 
-    public void btnRecyclerView1_clicked(View view) {
-        Intent intent = new Intent(this, RecyclerView1Activity.class);
+    public void button_clicked2(View button) {
+        Intent intent = new Intent(this, Exam2Activity.class);
         startActivity(intent);
     }
-
 }
