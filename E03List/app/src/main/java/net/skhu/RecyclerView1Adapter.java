@@ -36,12 +36,13 @@ public class RecyclerView1Adapter extends RecyclerView.Adapter<RecyclerView1Adap
         return arrayList.size();
     }
 
+    // 아이템 뷰를 위한 뷰홀더 객체 생성하여 리턴
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup viewGroup, int viewType) {
         View view = layoutInflater.inflate(R.layout.item1, viewGroup, false);
         return new ViewHolder(view);
     }
-
+    // position에 해당하는 데이터를 뷰홀더의 아이템 뷰에 표시
     @Override
     public void onBindViewHolder(final ViewHolder viewHolder, final int index) {
         viewHolder.textView.setText(arrayList.get(index));
