@@ -15,7 +15,9 @@ public class RecyclerView1Adapter extends RecyclerView.Adapter<RecyclerView1Adap
 
         public ViewHolder(View view) {
             super(view);
+            if(view instanceof View) System.out.println("instanceinfo");
             textView = view.findViewById(R.id.textView);
+            System.out.println("뷰홀더 생성자");
         }
     }
 
@@ -36,13 +38,13 @@ public class RecyclerView1Adapter extends RecyclerView.Adapter<RecyclerView1Adap
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup viewGroup, int viewType) {
         View view = layoutInflater.inflate(R.layout.item1, viewGroup, false);
-        System.out.println("뷰홀더 생성");
+        System.out.println("뷰홀더 create");
         return new ViewHolder(view);
     }
 
     @Override
     public void onBindViewHolder(final ViewHolder viewHolder, final int index) {
         viewHolder.textView.setText(arrayList.get(index));
-        System.out.println("뷰홀더 바인드");
+        System.out.println("뷰홀더 bind");
     }
 }
