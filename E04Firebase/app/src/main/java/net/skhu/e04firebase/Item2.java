@@ -5,6 +5,7 @@ import java.util.Date;
 
 public class Item2 {
     final static SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+    String key;
     String title;
     Date date;
     boolean checked;
@@ -16,6 +17,9 @@ public class Item2 {
         this.title = title;
         this.date = date;
     }
+
+    public String getKey() { return key; }
+    public void setKey(String key) { this.key = key; }
 
     public String getTitle() {
         return title;

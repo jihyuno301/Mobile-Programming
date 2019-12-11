@@ -20,6 +20,7 @@ public class MainActivity extends AppCompatActivity {
         switch(view.getId()) {
             case R.id.button1: activityClass = Firebase1Activity.class; break;
             case R.id.button2: activityClass = Firebase2Activity.class; break;
+            case R.id.button3: activityClass = Firebase3Activity.class; break;
         }
         startActivity(new Intent(this, activityClass));
     }
