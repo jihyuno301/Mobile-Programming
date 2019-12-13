@@ -34,6 +34,11 @@ public class FirebaseDbService implements ChildEventListener {
         databaseReference.child(key).setValue(item);
     }
 
+    public void updateServer(Item2 item) {
+        // 서버 데이터를 update 한다.
+        String key = item.getKey();
+        databaseReference.child(key).setValue(item);
+    }
     public void removeFromServer(int index) {
         String key = itemList.get(index).getKey();
         databaseReference.child(key).removeValue();
@@ -49,7 +54,9 @@ public class FirebaseDbService implements ChildEventListener {
             Log.e("로그", "key값 불일치 오류");
 
         itemList.add(item); // 새 데이터를 itemList에 등록한다.
-        recyclerView2Adapter.notifyDataSetChanged(); // RecyclerView를 다시 그린다.
+//        recyclerView2Adapter.notifyDataSetChanged(); // RecyclerView를 다시 그린다.
+        int index = itemList.size()-1;
+        recyclerView2Adapter.notifyItemInserted(index);
     }
 
     // itemList에서 key 값을 찾아서 index를 리턴한다.
@@ -71,9 +78,10 @@ public class FirebaseDbService implements ChildEventListener {
 
         // key 값의 데이터 항목을 찾아서 수정한다.
         int index = findKey(key);
-        if (index >= 0)
+        if (index >= 0) {
             itemList.set(index, item); // 수정된 데이터를 대입한다 (overwrite)
-        recyclerView2Adapter.notifyDataSetChanged(); // RecyclerView를 다시 그린다.
+            recyclerView2Adapter.notifyItemChanged(index); // RecyclerView를 다시 그린다.
+        }
     }
 
     @Override
@@ -84,9 +92,10 @@ public class FirebaseDbService implements ChildEventListener {
 
         // key 값의 데이터 항목을 찾아서 삭제한다
         int index = findKey(key);
-        if (index >= 0)
+        if (index >= 0) {
             itemList.remove(index); // itemList에서 그 데이터 항목을 삭제한다.
-        recyclerView2Adapter.notifyDataSetChanged(); // RecyclerView를 다시 그린다.
+            recyclerView2Adapter.notifyItemChanged(index); // RecyclerView를 다시 그린다.
+        }
     }
 
     @Override

@@ -1,9 +1,11 @@
 package net.skhu.e04firebase;
 
+import java.io.Serializable;
+import java.text.Format;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-public class Item2 {
+public class Item2 implements Serializable {
     final static SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
     String key;
     String title;
@@ -25,6 +27,10 @@ public class Item2 {
         return title;
     }
 
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
     public Date getDate() {
         return date;
     }
@@ -33,6 +39,13 @@ public class Item2 {
         return format.format(date);
     }
 
+    public void setDateFormatted(String date) {
+        try {
+            this.date = format.parse(date);
+        } catch (Exception e) {
+
+        }
+    }
     public boolean isChecked() { return checked; }
     public void setChecked(boolean checked) { this.checked = checked; }
 }

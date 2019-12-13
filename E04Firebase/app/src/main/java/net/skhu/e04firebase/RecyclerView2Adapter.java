@@ -2,6 +2,7 @@ package net.skhu.e04firebase;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -38,9 +39,18 @@ public class RecyclerView2Adapter extends RecyclerView.Adapter<RecyclerView2Adap
 
         @Override
         public void onClick(View view) {
-            Item2 item = arrayList.get(super.getAdapterPosition());
-            String s = String.format("index: %d,  title: %s", super.getAdapterPosition(), item.getTitle());
-            Toast.makeText(view.getContext(), s, Toast.LENGTH_SHORT).show();
+//            Item2 item = arrayList.get(super.getAdapterPosition());
+//            String s = String.format("index: %d,  title: %s", super.getAdapterPosition(), item.getTitle());
+//            Toast.makeText(view.getContext(), s, Toast.LENGTH_SHORT).show();
+            Firebase3Activity activity = (Firebase3Activity)view.getContext();
+            Item2 item = arrayList.get(getAdapterPosition());
+            // 현재 화면에서 수정 화면으로 이동할 수 있는 Intent 객체 생성
+            // Item2EditActivity 액티비티를 호출하기 위한 Intent 객체 생성
+            Intent intent = new Intent(activity, Item2EditActivity.class);
+            // 액티비티를 호출하면서, 파라미터로 전달할 객체를 intent에 넣는다.
+            // 이 객체를 Serializable 인터페이스를 implements 해야한다.
+            intent.putExtra("item", item);
+            activity.startActivityForResult(intent, Item2EditActivity.REQUEST_EDIT);
         }
 
         @Override

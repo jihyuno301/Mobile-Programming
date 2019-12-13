@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -92,5 +93,17 @@ public class Firebase3Activity extends AppCompatActivity {
         builder.setNegativeButton(R.string.no, null);
         AlertDialog dialog = builder.create();
         dialog.show();
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent intent) {
+         super.onActivityResult(requestCode, resultCode, intent);
+         if(requestCode == Item2EditActivity.REQUEST_EDIT) {
+             if(resultCode == RESULT_OK) {
+                 // 호출된 액티비티가 리턴한 데이터 객체를 intent에서 꺼낸다.
+                 Item2 item = (Item2)intent.getSerializableExtra("item");
+                 firebaseDbService.updateServer(item);
+             }
+         }
     }
 }
