@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -12,7 +13,7 @@ import java.util.ArrayList;
 
 public class Comment1Adapter extends RecyclerView.Adapter<Comment1Adapter.ViewHolder>  {
 
-    public class ViewHolder extends RecyclerView.ViewHolder {
+    public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         TextView textView1, textView2, textView3;
 
         public ViewHolder(View view) {
@@ -20,6 +21,7 @@ public class Comment1Adapter extends RecyclerView.Adapter<Comment1Adapter.ViewHo
             textView1 = view.findViewById(R.id.textView_id);
             textView2 = view.findViewById(R.id.textView_content);
             textView3 = view.findViewById(R.id.textView_date);
+            view.setOnClickListener(this);
         }
 
         public void setData() {
@@ -29,6 +31,12 @@ public class Comment1Adapter extends RecyclerView.Adapter<Comment1Adapter.ViewHo
             textView3.setText(item.getDateFormatted());
         }
 
+        @Override
+        public void onClick(View view) {
+            Item item = arrayList.get(getAdapterPosition());
+            String s = String.format("index: %d, id: %s", getAdapterPosition(), item.getId());
+            Toast.makeText(view.getContext(), s, Toast.LENGTH_SHORT).show();
+        }
     }
 
     LayoutInflater layoutInflater;
