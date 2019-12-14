@@ -8,6 +8,7 @@ public class Item {
     String id;
     String comment;
     Date date;
+    boolean checked;
 
     public Item(String id, String comment, Date date) {
         this.id = id;
@@ -30,4 +31,8 @@ public class Item {
     public String getDateFormatted() {
         return format.format(date);
     }
+
+    public boolean isChecked() { return checked; }
+    public void setChecked(boolean checked) { this.checked = checked; }
+
 }
