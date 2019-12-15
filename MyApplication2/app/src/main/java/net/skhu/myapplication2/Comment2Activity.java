@@ -19,48 +19,45 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.ListIterator;
 
-public class Comment1Activity extends AppCompatActivity {
+public class Comment2Activity extends AppCompatActivity {
 
-    Comment1Adapter comment1Adapter;
-    ArrayList<Item> arrayList;
+    Comment2Adapter comment2Adapter;
+    ArrayList<Item2> arrayList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_comment1);
+        setContentView(R.layout.activity_comment2);
 
-        arrayList = new ArrayList<Item>();
-        arrayList.add(new Item("joh755807", "공부하기 싫어", new Date()));
-        arrayList.add(new Item("jihyuno301", "졸령", new Date()));
+        arrayList = new ArrayList<Item2>();
+        arrayList.add(new Item2("하기실홍"));
+        arrayList.add(new Item2("졸령"));
 
-        comment1Adapter = new Comment1Adapter(this, arrayList);
+        comment2Adapter = new Comment2Adapter(this, arrayList);
         RecyclerView recyclerView = (RecyclerView) findViewById(R.id.recyclerView2);
         recyclerView.addItemDecoration(new DividerItemDecoration(this, DividerItemDecoration.VERTICAL));
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setItemAnimator(new DefaultItemAnimator());
-        recyclerView.setAdapter(comment1Adapter);
+        recyclerView.setAdapter(comment2Adapter);
 
         Button b = (Button)findViewById(R.id.btnAdd);
         b.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                EditText e1 = (EditText)findViewById(R.id.editText1);
-                EditText e2 = (EditText)findViewById(R.id.editText2);
+                EditText e1 = (EditText)findViewById(R.id.editText);
                 String s1 = e1.getText().toString();
-                String s2 = e2.getText().toString();
                 e1.setText("");
-                e2.setText("");
-                arrayList.add(new Item(s1,s2, new Date()));
-                comment1Adapter.notifyDataSetChanged();
+                arrayList.add(new Item2(s1));
+                comment2Adapter.notifyDataSetChanged();
             }
         });
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menu_comment1, menu);
+        getMenuInflater().inflate(R.menu.menu_comment2, menu);
         MenuItem menuItem = menu.findItem(R.id.action_remove);
-        menuItem.setVisible(comment1Adapter.checkedItemCount>0);
+        menuItem.setVisible(comment2Adapter.checkedItemCount>0);
         return true;
     }
 
@@ -68,8 +65,8 @@ public class Comment1Activity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
         if (id == R.id.action_remove) {
-           deleteItems();
-           return true;
+            deleteItems();
+            return true;
         }
         return super.onOptionsItemSelected(item);
     }
@@ -81,11 +78,11 @@ public class Comment1Activity extends AppCompatActivity {
         builder.setPositiveButton("예", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int index) {
-                ListIterator<Item> iterator = arrayList.listIterator();
+                ListIterator<Item2> iterator = arrayList.listIterator();
                 while (iterator.hasNext())
                     if (iterator.next().isChecked())
                         iterator.remove();
-                comment1Adapter.notifyDataSetChanged();
+                comment2Adapter.notifyDataSetChanged();
 
             }
         });
